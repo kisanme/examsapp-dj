@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+    env_file:
+       - database.env # configure postgres
+    volumes:
+       - database-data:/var/lib/postgresql/data/ # persist data even if container shuts down
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-compose
