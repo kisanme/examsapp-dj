@@ -35,8 +35,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
-    'dal',
-    'dal_select2',
+    'rest_framework',
     'fa',
     'exams.apps.ExamsConfig',
     'django.contrib.admin',

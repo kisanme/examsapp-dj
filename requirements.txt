@@ -7,3 +7,4 @@ pylint >= 2.4
 pylint-django >= 2.0
 Pillow >= 7.0
 django-autocomplete-light >= 3.5
+djangorestframework >= 3.11
