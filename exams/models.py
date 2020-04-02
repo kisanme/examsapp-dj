@@ -41,7 +41,7 @@ class Answers(models.Model):
         (IMAGE_ANS, 'Image'),
         (TEXT_ANS, 'Text'),
     ]
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='answers', on_delete=models.CASCADE)
     answer_text = models.TextField(blank=True)
     answer_image = models.ImageField(blank=True)
     answer_type = models.CharField(max_length=2, choices=ANSWER_TYPES, default=TEXT_ANS)
