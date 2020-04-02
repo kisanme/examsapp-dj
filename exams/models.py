@@ -46,10 +46,25 @@ class Answers(models.Model):
     answer_image = models.ImageField(blank=True)
     answer_type = models.CharField(max_length=2, choices=ANSWER_TYPES, default=TEXT_ANS)
 
+    def answers_for_question(self):
+        return Answers.objects.filter(question_id=self.question_id)
+
+    def __str__(self):
+        answers = self.answers_for_question()
+        current_answer = Answers.objects.get(pk=self.id)
+        current = 1
+        for i in answers:
+            if i == current_answer:
+                return 'Answer ' + str(current)
+            else:
+                current += 1
+
+        return str(current)
+
 
 class CorrectAnswer(models.Model):
     """
     Pivot table which contains Question id and Answer id for correct answers
     """
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    answer = models.ForeignKey(Answers, on_delete=models.CASCADE)
+    question = models.ForeignKey(Question, related_name='target_question', on_delete=models.CASCADE)
+    answer = models.ForeignKey(Answers, related_name='correct_answer', on_delete=models.CASCADE)

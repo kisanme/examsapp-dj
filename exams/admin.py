@@ -6,6 +6,12 @@ class InlineAnswers(admin.TabularInline):
     model = Answers
     extra = 4
     max_num = 5
+    fields = [
+        'answer_text',
+        'answer_image',
+        'answer_type',
+        # 'correct_answer'
+    ]
 
 
 class QuestionAdmin(admin.ModelAdmin):
@@ -22,10 +28,6 @@ class QuestionAdmin(admin.ModelAdmin):
         }),
     )
     inlines = [InlineAnswers]
-
-
-class InlineQuestions(admin.StackedInline):
-    model = QuestionAdmin
 
 
 class ExamAdmin(admin.ModelAdmin):
