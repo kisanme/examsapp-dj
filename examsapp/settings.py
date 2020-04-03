@@ -35,6 +35,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'froala_editor',
     'rest_framework',
     'fa',
     'exams.apps.ExamsConfig',

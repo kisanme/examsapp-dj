@@ -22,6 +22,10 @@ class QuestionAdmin(admin.ModelAdmin):
         (None, {
             "fields": [
                 "exam", 
+            ]
+        }),
+        ('Question', {
+            "fields": [
                 "question_text",
                 "question_type",
             ],

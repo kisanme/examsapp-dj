@@ -2,6 +2,7 @@
 DB related model imports
 """
 from django.db import models
+from froala_editor.fields import FroalaField
 
 
 class Exam(models.Model):
@@ -23,7 +24,7 @@ class Question(models.Model):
       - Relates to the Exam model in one-to-many relationship
     """
     exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
-    question_text = models.TextField()
+    question_text = FroalaField()
     question_type = models.CharField(max_length=50, default='') 
 
     def __str__(self):

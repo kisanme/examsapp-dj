@@ -8,3 +8,4 @@ pylint-django >= 2.0
 Pillow >= 7.0
 django-autocomplete-light >= 3.5
 djangorestframework >= 3.11
+django-froala-editor >= 3.1
