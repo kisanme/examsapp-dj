@@ -8,8 +8,6 @@ class InlineAnswers(admin.TabularInline):
     max_num = 5
     fields = [
         'answer_text',
-        'answer_image',
-        'answer_type',
         # 'correct_answer'
     ]
 
