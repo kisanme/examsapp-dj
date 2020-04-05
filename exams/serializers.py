@@ -5,7 +5,7 @@ from .models import Exam, Question, Answers
 class ExamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Exam
-        fields = ('id', 'title', 'description', 'exam_duration', 'pub_date')
+        fields = ('id', 'title', 'description', 'exam_duration', 'pub_date', 'question_count')
 
 
 class AnswerSerializer(serializers.ModelSerializer):

@@ -1,6 +1,8 @@
 """
 DB related model imports
 """
+from pprint import pprint
+from django.db.models import Count
 from django.db import models
 from froala_editor.fields import FroalaField
 
@@ -15,6 +17,11 @@ class Exam(models.Model):
     published_status = models.BooleanField(default=False)
     pub_date = models.DateTimeField('published date')
 
+
+    def question_count(self):
+        questions = Question.objects.filter(exam_id=self.id)
+        return len(questions)
+
     def __str__(self):
         return self.title
 
@@ -24,7 +31,7 @@ class Question(models.Model):
     Question Model
       - Relates to the Exam model in one-to-many relationship
     """
-    exam = models.ForeignKey(Exam, on_delete=models.CASCADE)
+    exam = models.ForeignKey(Exam, related_name='questions', on_delete=models.CASCADE)
     question_text = FroalaField()
     question_type = models.CharField(max_length=50, default='') 
 
