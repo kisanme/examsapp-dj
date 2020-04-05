@@ -10,6 +10,7 @@ class Exam(models.Model):
     Exam Model
     """
     title = models.CharField(max_length=200)
+    description = FroalaField(blank=True)
     exam_duration = models.DurationField(null=True)
     published_status = models.BooleanField(default=False)
     pub_date = models.DateTimeField('published date')

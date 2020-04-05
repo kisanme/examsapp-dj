@@ -37,6 +37,7 @@ class ExamAdmin(admin.ModelAdmin):
         (None, {
             "fields": (
                 "title",
+                "description",
                 "exam_duration",
                 "pub_date",
                 "published_status"
